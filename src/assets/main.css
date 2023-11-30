@@ -1,35 +1,40 @@
 @import './base.css';
 
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-
-  font-weight: normal;
+/* Navbar */
+.nav-link {
+  color: white;
+  font-weight: bold;
 }
 
-a,
-.green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
+.nav-link:hover {
+  color: white;
+  background: rgb(60, 60, 60);
 }
 
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
+.router-link-active {
+  color: white !important;
+  background: rgb(60, 60, 60);
 }
 
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
+.toggle-icon {
+  color: white;
+  font-size: 150%;
+}
 
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
-  }
+/* Sidebars */
+.shadow-left {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.shadow-right {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.shadow-bottom {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Kattenpedia Page */
+.kattenpedia-page {
+  overflow-y: scroll;
 }
