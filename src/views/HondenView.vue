@@ -1,4 +1,5 @@
 <template>
+    <title style="display: none;">Honden</title>
     <div class="container-fluid h-50 px-2">
 
         <div class="container-fluid d-flex mt-2 p-0">
@@ -18,8 +19,8 @@
             </div>
 
             <div class="card w-25 ms-1">
-                <div class="card-body">
-                    <img :src="dogImg" class="" style="width: 100%; height: 200px; image-rendering: optimizeQuality;" />
+                <div class="card-body d-flex justify-content-center">
+                    <img :src="dogImg" class="img-fluid" style="max-height: 15rem;" />
                 </div>
             </div>
         </div>

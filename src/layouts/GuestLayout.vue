@@ -29,7 +29,7 @@
 
     <!-- ! Mobile Version -->
     <div v-if="isMobile" class="container-fluid p-0">
-        test2
+        <RouterView />
     </div>
 </template>
 

@@ -7,6 +7,8 @@
             <p>Deze website is gemaakt met VUE en Bootstrap.</p>
             <br />
             <p>Ook is er gewerkt aan Search Engine Optimization (SEO)</p>
+            <br />
+            <p>Ook heb ik 2 API's toegevoegd, op de katten pagina word er een feit verteld (wel in het engels). En op de honden pagina is de image een random image.</p>
         </div>
     </div>
 </template>

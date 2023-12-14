@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.huisdierpedia.nl/sitemap">
+    <url>
+        <loc>http://www.huisdierpedia.nl/</loc>
+        <lastmod>2023-12-14</lastmod>
+        <priority>1.00</priority>
+    </url>
+    <url>
+        <loc>http://www.huisdierpedia.nl/honden</loc>
+        <lastmod>2023-12-14</lastmod>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>http://www.huisdierpedia.nl/katten</loc>
+        <lastmod>2023-12-14</lastmod>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>http://www.huisdierpedia.nl/konijnen</loc>
+        <lastmod>2023-12-14</lastmod>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>http://www.huisdierpedia.nl/seo</loc>
+        <lastmod>2023-12-14</lastmod>
+        <priority>0.80</priority>
+    </url>
+</urlset>

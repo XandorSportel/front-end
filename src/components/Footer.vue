@@ -16,9 +16,6 @@
             <li class="nav-item">
                 <router-link to="/seo" class="nav-link rounded mx-1 px-3">SEO</router-link>
             </li>
-            <li class="nav-item">
-                <router-link to="/sitemap" class="nav-link rounded mx-1 px-3">Sitemap</router-link>
-            </li>
         </ul>
         <p class="m-0 pt-1 pb-2">&copy; 2023 - Xandor Sportel</p>
     </div>
