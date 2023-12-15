@@ -30,6 +30,7 @@
     <!-- ! Mobile Version -->
     <div v-if="isMobile" class="container-fluid p-0">
         <RouterView />
+        <Footer style="font-size: 80%;"></Footer>
     </div>
 </template>
 
@@ -44,6 +45,8 @@
         mounted() {
             this.isMobile = window.innerWidth < 768;
             window.addEventListener('resize', this.handleResize);
+            console.log(this.isMobile);
+            console.log(window.innerWidth);
         },
         methods: {
             handleResize() {

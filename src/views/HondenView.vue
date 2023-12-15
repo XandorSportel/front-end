@@ -2,7 +2,7 @@
     <title style="display: none;">Honden</title>
     <div class="container-fluid h-50 px-2">
 
-        <div class="container-fluid d-flex mt-2 p-0">
+        <div v-if="!isMobile" class="container-fluid d-flex mt-2 p-0">
             <div class="card w-75 me-1">
                 <div class="card-body">
                     <h5 class="card-title">Hond</h5>
@@ -20,12 +20,35 @@
 
             <div class="card w-25 ms-1">
                 <div class="card-body d-flex justify-content-center">
-                    <img :src="dogImg" class="img-fluid" style="max-height: 15rem;" />
+                    <img :src="dogImg" class="img-fluid" style="max-height: 15rem;" alt="Hond" />
                 </div>
             </div>
         </div>
 
-        <div class="card mt-2">
+        <div v-if="isMobile" class="container-fluid mt-2 p-0">
+            <div class="card w-100 me-1">
+                <div class="card-body d-flex justify-content-center">
+                    <img :src="dogImg" class="img-fluid" style="max-height: 15rem;" alt="Hond" />
+                </div>
+            </div>
+
+            <div class="card w-100 me-1 mt-2">
+                <div class="card-body">
+                    <h5 class="card-title">Hond</h5>
+                    <div class="card-text">
+                        De hond (Canis lupus familiaris) is een roofdier uit de familie van de hondachtigen (Canidae), en een gedomesticeerde ondersoort van de wolf. 
+                        De wetenschappelijke naam ervan werd in 1758 als Canis familiaris gepubliceerd door Carl Linnaeus. 
+                        De hond komt op alle continenten voor, meestal in gezelschap van de mens. Al sinds duizenden jaren wordt de hond door mensen gebruikt, 
+                        bijvoorbeeld bij de jacht, als herdershond, trekdier, politiehond of hulphond, maar vaker als gezelschapsdier. 
+                        Het houden van honden is niet zonder risico: er zijn in Nederland jaarlijks 150.000 bijtincidenten. 
+                        Wereldwijd sterven naar schatting meer dan 50.000 mensen per jaar aan rabies, 
+                        dat voornamelijk door een beet van besmette (zwerf)honden wordt overgebracht - met name in India.
+                    </div>
+                </div>
+            </div>           
+        </div>
+
+        <div class="card my-2">
             <div class="card-body">
                 <h5 class="card-title">Voeding</h5>
                 <div class="card-text">
@@ -69,10 +92,13 @@
         data() {
             return {
                 dogImg: '',
+                isMobile: false,
             };
         },
         mounted() {
             this.getDogImg();
+            this.isMobile = window.innerWidth < 768;
+            window.addEventListener('resize', this.handleResize);
         },
         methods: {
             getDogImg() {
@@ -83,7 +109,13 @@
                     .catch(error => {
                         console.log(error);
                     });
+            },
+            handleResize() {
+                this.isMobile = window.innerWidth < 768;
             }
+        },
+        beforeDestroy() {
+            window.removeEventListener('resize', this.handleResize);
         }
     }
 

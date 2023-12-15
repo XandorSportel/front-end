@@ -1,7 +1,7 @@
 <template>
     <div class="container-fluid h-50 px-2">
 
-        <div class="container-fluid d-flex mt-2 p-0">
+        <div v-if="!isMobile" class="container-fluid d-flex mt-2 p-0">
             <div class="card w-75 me-1">
                 <div class="card-body">
                     <h5 class="card-title">Konijn</h5>
@@ -32,12 +32,48 @@
 
             <div class="card w-25 ms-1">
                 <div class="card-body d-flex justify-content-center">
-                    <img src="../images/konijn.jpg" class="img-fluid" style="max-height: 15rem;" />
+                    <img src="../images/konijn.jpg" class="img-fluid" style="max-height: 15rem;" alt="Konijn" />
                 </div>
             </div>
         </div>
 
-        <div class="card mt-2">
+        <div v-if="isMobile" class="container-fluid mt-2 p-0">
+            <div class="card w-100 me-1">
+                <div class="card-body d-flex justify-content-center">
+                    <img src="../images/konijn.jpg" class="img-fluid" style="max-height: 15rem;" alt="Konijn" />
+                </div>
+            </div>
+
+            <div class="card w-100 me-1 mt-2">
+                <div class="card-body">
+                    <h5 class="card-title">Konijn</h5>
+                    <div class="card-text">
+                        <p class="card-text">
+                            De grootte zit tussen die van de echte hazen en de fluithazen in met een kop-romplengte van 35 tot 50 cm. 
+                            De achterpoten van het konijn zijn relatief veel korter dan die van de hazen, maar langer dan die van de fluithazen. 
+                            De buik is veel lichter van kleur dan de rug, vaak wit. Ook de onderzijde van de staart en de poten is wit.
+                        </p>
+
+                        <p class="card-text">
+                            Het lichaamsgewicht bedraagt 1,2 tot 2,5 kilogram. De staart is 4 tot 8 centimeter lang. Konijnen hebben voornamelijk een grijsbruine kleur, 
+                            wildkleur of agouti genaamd. De dieren hebben ook een roodbruine vlek in de nek. De oren hebben een bruin puntje, 
+                            de bovenzijde van de staart is zwartbruin. De buikzijde is blauwig grijs van kleur, de onderzijde van de staart is wit. 
+                            Deze valt zeer op als hij wordt opgewipt. Sommige konijnen die maar half wild zijn kunnen wit of zwart zijn. 
+                            Bij het konijn zijn de oren maximaal tien centimeter lang en korter dan de kop.
+                        </p>
+
+                        <p class="card-text">
+                            Het konijn leeft alleen van plantaardig voedsel. Ook eet het zijn eigen keutels op (coprofagie). 
+                            Haasachtigen waaronder konijnen behoren niet tot de knaagdieren, al wordt dit vaak gedacht. 
+                            Knaagdieren beschikken in het bovenste deel van het gebit over maar twee snijtanden, terwijl haasachtigen er vier hebben, 
+                            waarvan de twee stifttanden achter de bovenste snijtanden staan.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card my-2">
             <div class="card-body">
                 <h5 class="card-title">Leefwijze</h5>
                 <div class="card-text">
@@ -66,3 +102,27 @@
 
     </div>
 </template>
+
+<script>
+
+    export default {
+        data() {
+            return {
+                isMobile: false,
+            };
+        }, 
+        mounted() {
+            this.isMobile = window.innerWidth < 768;
+            window.addEventListener('resize', this.handleResize);
+        },
+        methods: {
+            handleResize() {
+                this.isMobile = window.innerWidth < 768;
+            }
+        },
+        beforeDestroy() {
+            window.removeEventListener('resize', this.handleResize);
+        }
+    }
+
+</script>

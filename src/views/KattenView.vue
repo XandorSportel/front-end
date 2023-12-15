@@ -1,5 +1,5 @@
 <template>
-    <div class="container-fluid h-50 px-2">
+    <div class="container-fluid h-50 mt-2 px-2">
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">Cat Fact</h5>
@@ -7,7 +7,7 @@
             </div>
         </div>
 
-        <div class="container-fluid d-flex mt-2 p-0">
+        <div v-if="!isMobile" class="container-fluid d-flex mt-2 p-0">
             <div class="card w-75 me-1">
                 <div class="card-body">
                     <h5 class="card-title">Kat</h5>
@@ -22,12 +22,32 @@
 
             <div class="card w-25 ms-1">
                 <div class="card-body">
-                    <img src="../images/katten.jpg" class="img-fluid" />
+                    <img src="../images/katten.jpg" class="img-fluid" alt="Kat" />
                 </div>
             </div>
         </div>
 
-        <div class="card mt-2">
+        <div v-if="isMobile" class="container-fluid mt-2 p-0">
+            <div class="card w-100 mt-2 me-1">
+                <div class="card-body">
+                    <img src="../images/katten.jpg" class="img-fluid" alt="Kat" />
+                </div>
+            </div>
+
+            <div class="card w-100 mt-2 me-1">
+                <div class="card-body">
+                    <h5 class="card-title">Kat</h5>
+                    <div class="card-text">
+                        De kat of huiskat (Felis silvestris catus) is een van de oudste huisdieren van de mens. 
+                        De gedomesticeerde kat behoort tot de familie der katachtigen (Felidae). 
+                        Ook het woord poes is gangbaar, soms meer specifiek in het geval van een vrouwelijke kat. 
+                        Een mannelijke kat heet een kater, en een jong katje een kitten.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card my-2">
             <div class="card-body">
                 <h5 class="card-title">Gedrag</h5>
                 <div class="card-text">
@@ -65,10 +85,13 @@
         data() {
             return {
                 catFact: '',
+                isMobile: false,
             };
         },
         mounted() {
             this.getCatFact();
+            this.isMobile = window.innerWidth < 768;
+            window.addEventListener('resize', this.handleResize);
         },
         methods: {
             getCatFact() {
@@ -79,7 +102,13 @@
                     .catch(error => {
                         console.log(error);
                     });
+            },
+            handleResize() {
+                this.isMobile = window.innerWidth < 768;
             }
+        },
+        beforeDestroy() {
+            window.removeEventListener('resize', this.handleResize);
         }
     }
 
